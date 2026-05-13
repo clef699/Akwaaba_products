@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akwaaba Marketplace — Remaining Work</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      padding: 48px 24px;
+    }
+    .page { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .item {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .item-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .item-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0a0a0a;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .item-body {
+      padding: 18px 22px;
+    }
+    ul.tasks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    ul.tasks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #333;
+      line-height: 1.5;
+    }
+    ul.tasks li::before {
+      content: "–";
+      color: #aaa;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 12px;
+      background: #f0f0f0;
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: #c7254e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    th {
+      text-align: left;
+      font-weight: 600;
+      color: #555;
+      padding: 7px 10px;
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+    }
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #f4f4f4;
+      color: #333;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .badge-orange { background: #fff3e0; color: #e65100; }
+    .badge-red    { background: #fce4ec; color: #b71c1c; }
+    .priority {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 22px;
+      border-top: 1px solid #f0f0f0;
+      background: #fafafa;
+    }
+    .priority-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      align-self: center;
+    }
+    .pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #0a0a0a;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Akwaaba Marketplace — Remaining Work</h1>
+  <p class="subtitle">10 outstanding items to complete before production. Execute in priority order.</p>
+
+  <!-- 1. Cart -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">1</div>
+      <div class="item-title">Cart — Complete Stub</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Build the full cart UI in <code>app/cart/page.tsx</code> (currently renders only <code>&lt;div&gt;Cart&lt;/div&gt;</code>)</li>
+        <li>Implement cart state management (localStorage or React context) with add / remove / update quantity</li>
+        <li>Wire "Add to Cart" on the product detail page (<code>app/shop/[id]/page.tsx</code>) and shop listing</li>
+        <li>Replace the hardcoded <code>3</code> cart badge in <code>app/components/Navbar.tsx</code> with live item count</li>
+        <li>Replace the placeholder <code>CART_ITEMS</code> constant in <code>app/checkout/payment/page.tsx</code> with real cart state</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. Environment Variables -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">2</div>
+      <div class="item-title">Environment Variables</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Replace hardcoded <code>https://akwaabaproducts.com/api</code> in <code>lib/api.ts</code> with <code>process.env.NEXT_PUBLIC_API_BASE_URL</code></li>
+        <li>Create <code>.env.local</code> with all required frontend variables:
+          <code>NEXT_PUBLIC_API_BASE_URL</code>,
+          <code>NEXT_PUBLIC_SITE_URL</code>,
+          <code>NEXT_PUBLIC_PAYMENT_PROVIDER=sentinelgate</code>,
+          <code>NEXT_PUBLIC_SENTINELGATE_PUBLIC_KEY</code>,
+          <code>NEXT_PUBLIC_IMAGE_UPLOAD_PROVIDER</code>,
+          <code>NEXT_PUBLIC_COURIER_PROVIDER</code>
+        </li>
+        <li>Add <code>.env.local</code> to <code>.gitignore</code> if not already present</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3. Route Guards -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">3</div>
+      <div class="item-title">Route Guards &amp; Role Protection</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Add auth + role check to <code>app/admin/layout.tsx</code> — redirect unauthenticated users to <code>/login</code>, non-admins to <code>/</code></li>
+        <li>Add auth check to <code>app/vendor/layout.tsx</code> — redirect non-vendors</li>
+        <li>Add auth check to <code>app/customer/layout.tsx</code> — redirect unauthenticated users to <code>/login</code></li>
+        <li>Filter <code>app/components/AdminSidebar.tsx</code> menu items by the user's role (<code>division_catalog</code>, <code>division_orders</code>, <code>division_finance</code>, etc.) so each division staff only sees their own sections</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. Vendor API -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">4</div>
+      <div class="item-title">Vendor API — Wire All Endpoints</div>
+    </div>
+    <div class="item-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Page / File</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>GET /vendor/dashboard/stats</code></td>
+            <td><code>app/vendor/dashboard/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /vendor/products</code></td>
+            <td><code>app/vendor/products/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>POST /vendor/products</code></td>
+            <td><code>app/vendor/products/new/page.tsx</code></td>
+            <td><span class="badge badge-orange">Form not wired</span></td>
+          </tr>
+          <tr>
+            <td><code>PUT /vendor/products/:id</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Page missing</span></td>
+          </tr>
+          <tr>
+            <td><code>DELETE /vendor/products/:id</code></td>
+            <td><code>app/vendor/products/page.tsx</code></td>
+            <td><span class="badge badge-orange">Button not wired</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /vendor/orders</code></td>
+            <td><code>app/vendor/orders/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /vendor/orders/:id</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Page missing</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /vendor/payouts</code></td>
+            <td><code>app/vendor/payout/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>POST /vendor/payout-requests</code></td>
+            <td><code>app/vendor/payout/page.tsx</code></td>
+            <td><span class="badge badge-orange">Button not wired</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <ul class="tasks">
+        <li>Create <code>lib/vendor.ts</code> with typed functions for all vendor endpoints</li>
+        <li>Create the missing <code>app/vendor/products/[id]/edit/page.tsx</code> page</li>
+        <li>Create the missing <code>app/vendor/orders/[id]/page.tsx</code> detail page</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. Admin API -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">5</div>
+      <div class="item-title">Admin API — Wire All Endpoints</div>
+    </div>
+    <div class="item-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Page / File</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>GET /admin/stats</code></td>
+            <td><code>app/admin/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/users</code></td>
+            <td><code>app/admin/users/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/users/:id</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Page missing</span></td>
+          </tr>
+          <tr>
+            <td><code>PATCH /admin/users/:id/role</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Not implemented</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/orders</code></td>
+            <td><code>app/admin/orders/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/orders/:id</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Page missing</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/divisions</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Page missing</span></td>
+          </tr>
+          <tr>
+            <td><code>POST /admin/divisions</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Not implemented</span></td>
+          </tr>
+          <tr>
+            <td><code>PATCH /admin/divisions/:id</code></td>
+            <td>—</td>
+            <td><span class="badge badge-red">Not implemented</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/analytics</code></td>
+            <td><code>app/admin/analytics/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/finance/ledger</code></td>
+            <td><code>app/admin/finance/ledger/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/ai/forecast</code></td>
+            <td><code>app/admin/finance/ai-forecasts/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/finance/overview</code></td>
+            <td><code>app/admin/finance/overview/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+          <tr>
+            <td><code>GET /admin/finance/vendor-payouts</code></td>
+            <td><code>app/admin/finance/vendor-payouts/page.tsx</code></td>
+            <td><span class="badge badge-orange">Hardcoded</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <ul class="tasks">
+        <li>Create <code>lib/admin.ts</code> with typed functions for all admin endpoints</li>
+        <li>Create the missing <code>app/admin/users/[id]/page.tsx</code> detail page (with role-change UI)</li>
+        <li>Create the missing <code>app/admin/orders/[id]/page.tsx</code> detail page</li>
+        <li>Create the missing <code>app/admin/divisions/page.tsx</code> with create and edit functionality</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6. Customer Dashboard -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">6</div>
+      <div class="item-title">Customer Dashboard — Hardcoded Data</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li><code>app/customer/page.tsx</code> — replace hardcoded recent orders with a live call to <code>GET /orders</code></li>
+        <li><code>app/customer/profile/page.tsx</code> — load real user data from <code>GET /auth/me</code> on mount; wire the save button to a profile update endpoint</li>
+        <li><code>app/customer/addresses/page.tsx</code> — hardcoded addresses; wire to a customer addresses API when available</li>
+        <li><code>app/customer/payment-methods/page.tsx</code> — hardcoded; wire to saved payment references API when available</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7. Logistics -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">7</div>
+      <div class="item-title">Logistics — All Pages Hardcoded</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Create <code>lib/logistics.ts</code> with typed functions for shipment endpoints</li>
+        <li><code>app/logistics/overview/page.tsx</code> — replace hardcoded stats and shipment list with live data</li>
+        <li><code>app/logistics/shipments/page.tsx</code> — replace hardcoded shipments with live API call</li>
+        <li><code>app/logistics/shipments/[id]/page.tsx</code> — load real shipment detail</li>
+        <li><code>app/logistics/shipments/[id]/update/page.tsx</code> and <code>app/logistics/shipments/new/page.tsx</code> — wire forms to create/update shipment endpoints</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8. Error Handling -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">8</div>
+      <div class="item-title">Global Error Handling</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li><strong>401</strong> — add a global interceptor in <code>lib/api.ts</code> that redirects to <code>/login</code> on any 401 response (currently only handled per-page)</li>
+        <li><strong>403</strong> — display a "You do not have permission" UI state when the API returns 403; not implemented anywhere</li>
+        <li><strong>422</strong> — parse <code>error.details</code> from the API error format and surface field-level validation messages in forms</li>
+        <li><strong>500</strong> — show a standardised retry / support message component instead of a generic crash</li>
+        <li>Payment errors — on <code>PAYMENT_FAILED</code> code, show the payment-specific reason and keep the cart and order intact</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 9. Image Uploads -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">9</div>
+      <div class="item-title">Image Uploads</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Create <code>lib/uploads.ts</code> implementing the signed URL upload flow: request signed URL from backend → upload directly to storage → return image URL/key to caller</li>
+        <li>Add image upload input to the vendor "Add Product" form (<code>app/vendor/products/new/page.tsx</code>) and product edit page</li>
+        <li>Add profile avatar upload to <code>app/customer/profile/page.tsx</code> (the camera icon UI already exists)</li>
+        <li>Storage provider is controlled by <code>NEXT_PUBLIC_IMAGE_UPLOAD_PROVIDER</code> env var (S3, R2, or Cloudinary); never upload through the Next.js server</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10. Signup Page -->
+  <div class="item">
+    <div class="item-header">
+      <div class="item-number">10</div>
+      <div class="item-title">Signup Page — Verify API Wiring</div>
+    </div>
+    <div class="item-body">
+      <ul class="tasks">
+        <li>Confirm that <code>app/(auth)/signup/page.tsx</code> calls <code>register()</code> from <code>lib/auth.ts</code> on form submit (the login page is wired; signup may not be)</li>
+        <li>On successful registration, store tokens and redirect appropriately (e.g. to <code>/customer</code>)</li>
+        <li>Show field-level validation errors returned by the API (<code>error.details</code>) on the signup form</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Priority footer -->
+  <div class="item">
+    <div class="priority">
+      <span class="priority-label">Suggested order:</span>
+      <span class="pill">1 Cart</span>
+      <span class="pill">2 Env Vars</span>
+      <span class="pill">3 Route Guards</span>
+      <span class="pill">4 Vendor API</span>
+      <span class="pill">5 Admin API</span>
+      <span class="pill">6 Customer</span>
+      <span class="pill">7 Logistics</span>
+      <span class="pill">8 Error Handling</span>
+      <span class="pill">9 Image Uploads</span>
+      <span class="pill">10 Signup</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

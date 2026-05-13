@@ -1,0 +1,22 @@
+"use client";
+
+import { useEffect } from "react";
+import { ServerErrorState } from "./components/ErrorStates";
+
+export default function GlobalError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <ServerErrorState onRetry={reset} />
+    </div>
+  );
+}
