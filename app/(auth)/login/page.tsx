@@ -40,7 +40,7 @@ export default function Login() {
       <div className="bg-(--dark) min-h-screen flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md bg-(--white) p-6 sm:p-8 rounded-lg shadow-lg">
           <div className="flex justify-center mb-2 py-3">
-            <img src="/logo.png" alt="Akwaaba Products" className="h-12 w-auto object-contain" />
+            <img src="/logo.png" alt="Akwaaba Products" className="h-16 w-auto" />
           </div>
           <h3 className="text-2xl sm:text-4xl font-semibold mb-2 py-4 text-center">
             Welcome back!

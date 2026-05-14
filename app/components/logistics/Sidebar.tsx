@@ -21,7 +21,7 @@ export default function LogisticsSidebar() {
       {/* Logo */}
       <div className="px-6 pt-10 pb-0">
         <div>
-          <img src="/logo.png" alt="Akwaaba Products" className="h-14 w-auto object-contain" />
+          <img src="/logo.png" alt="Akwaaba Products" className="h-20 w-auto" />
         </div>
       </div>
 

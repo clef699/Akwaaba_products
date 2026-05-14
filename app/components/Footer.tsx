@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="w-full bg-(--dark) text-white px-6 sm:px-12 lg:px-20 py-8">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
         <Link href="/">
-          <img src="/logo.png" alt="Akwaaba Products" className="h-12 w-auto object-contain" />
+          <img src="/logo.png" alt="Akwaaba Products" className="h-16 w-auto" />
         </Link>
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
           <li className="hover:text-(--primary)">

@@ -95,7 +95,7 @@ export default function AdminSidebar() {
     <aside className="w-64 bg-(--dark) min-h-screen flex flex-col fixed left-0 top-0 z-40">
       <div className="px-6 pt-6 pb-4">
         <Link href="/">
-          <img src="/logo.png" alt="Akwaaba Products" className="h-14 w-auto object-contain" />
+          <img src="/logo.png" alt="Akwaaba Products" className="h-20 w-auto" />
         </Link>
       </div>
 
