@@ -34,6 +34,11 @@ export default function VendorLoginPage() {
       {/* Left — white card */}
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="bg-white rounded-2xl p-10 w-full max-w-[440px] shadow-2xl">
+          {/* Logo */}
+          <div className="mb-5">
+            <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
+          </div>
+
           {/* Badge */}
           <span className="inline-block bg-[#4CAF50] text-white text-[11px] font-bold px-3 py-1.5 rounded-full tracking-widest mb-6">
             DIVISION STAFF PORTAL

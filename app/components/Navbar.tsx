@@ -29,8 +29,8 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-(--dark) text-white">
       <div className="flex items-center justify-between px-6 sm:px-12 lg:px-20 h-16">
-        <Link href="/" className="text-2xl font-bold">
-          Akwaaba<span className="text-(--primary)">.</span>
+        <Link href="/">
+          <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
         </Link>
 
         {/* Desktop links */}

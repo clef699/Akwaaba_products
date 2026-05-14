@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="w-full bg-(--dark) text-white px-6 sm:px-12 lg:px-20 py-8">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-        <Link href="/" className="text-2xl font-bold">
-          Akwaaba<span className="text-(--primary)">.</span>
+        <Link href="/">
+          <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
         </Link>
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
           <li className="hover:text-(--primary)">

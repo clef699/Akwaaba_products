@@ -30,8 +30,8 @@ export default function CustomerSidebar() {
   return (
     <aside className="w-64 bg-(--dark) min-h-screen flex flex-col fixed left-0 top-0 z-40">
       <div className="px-6 pt-6 pb-4">
-        <Link href="/" className="text-xl font-bold text-white">
-          akwaaba<span className="text-(--primary)">.</span>
+        <Link href="/">
+          <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
         </Link>
       </div>
 

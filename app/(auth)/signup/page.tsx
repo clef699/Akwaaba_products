@@ -56,9 +56,9 @@ export default function Signup() {
       <Navbar />
       <div className="bg-(--dark) min-h-screen flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md bg-(--white) p-6 sm:p-8 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold mb-2 py-3 text-center">
-            Akwaaba<span className="text-(--primary)">.</span>
-          </h2>
+          <div className="flex justify-center mb-2 py-3">
+            <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
+          </div>
           <h3 className="text-2xl sm:text-4xl font-semibold mb-2 py-4 text-center">
             Create Account
           </h3>

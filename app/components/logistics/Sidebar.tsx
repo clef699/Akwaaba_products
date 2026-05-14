@@ -20,9 +20,8 @@ export default function LogisticsSidebar() {
     <aside className="w-[260px] min-h-screen bg-[#0a0a0a] flex flex-col flex-shrink-0">
       {/* Logo */}
       <div className="px-6 pt-10 pb-0">
-        <div className="text-[20px] font-extrabold text-white mb-0">
-          <span className="text-white">akwaaba</span>
-          <span className="text-[#4caf50]">.</span>
+        <div>
+          <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
         </div>
       </div>
 
