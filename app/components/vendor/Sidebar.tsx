@@ -48,7 +48,7 @@ export default function VendorSidebar() {
       {/* Logo + Division */}
       <div className="border-b border-[#1c1c1c] pb-4 px-6 pt-10">
         <div className="mb-4">
-          <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
+          <img src="/logo.png" alt="Akwaaba Products" className="h-14 w-auto object-contain" />
         </div>
         <div className="bg-[#1a1a1a] rounded-[8px] px-3 py-2.5 flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#4caf50] flex-shrink-0" />

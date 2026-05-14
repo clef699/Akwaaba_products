@@ -36,7 +36,7 @@ export default function VendorLoginPage() {
         <div className="bg-white rounded-2xl p-10 w-full max-w-[440px] shadow-2xl">
           {/* Logo */}
           <div className="mb-5">
-            <img src="/logo.png" alt="Akwaaba Products" className="h-9 w-auto object-contain" />
+            <img src="/logo.png" alt="Akwaaba Products" className="h-12 w-auto object-contain" />
           </div>
 
           {/* Badge */}
